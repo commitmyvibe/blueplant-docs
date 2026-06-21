@@ -2,7 +2,7 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "almond",
   "name": "Product Guide",
-  "description": "Step-by-step guides for every product—platform setup, analytics, and integrations in one place.",
+  "description": "Hilfe und Anleitungen für blueplant – die Software für professionelle Raumbegrünung und Pflanzenpflege.",
   "colors": {
     "primary": "#166E3F",
     "light": "#26BD6C",
@@ -22,56 +22,116 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Home",
+          "anchor": "Start",
           "icon": "house",
-          "href": "/"
+          "href": "/erste-schritte/willkommen"
         },
         {
           "anchor": "Changelog",
           "icon": "scroll-text",
-          "href": "https://www.mintlify.com/docs/changelog"
+          "href": "https://www.mintlify.com/docs/changelog",
+          "hidden": true
         },
         {
           "anchor": "Help",
           "icon": "life-buoy",
-          "href": "https://www.mintlify.com/docs/contact-support"
+          "href": "https://www.mintlify.com/docs/contact-support",
+          "hidden": true
         }
       ]
     },
     "directory": "card",
-    "groups": [
+    "tabs": [
       {
-        "group": "Platform",
-        "icon": "layers",
-        "expanded": true,
+        "tab": "Erste Schritte",
         "pages": [
-          "platform/quickstart",
-          "platform/key-concepts",
-          "platform/configuration/settings",
-          "platform/configuration/user-management",
-          "platform/administration/roles-permissions"
+          "erste-schritte/willkommen",
+          "erste-schritte/die-zwei-arbeitsbereiche",
+          "erste-schritte/anmelden",
+          "erste-schritte/rollen",
+          "erste-schritte/grundbegriffe"
         ]
       },
       {
-        "group": "Analytics",
-        "icon": "chart-bar",
-        "expanded": true,
-        "pages": [
-          "analytics/quickstart",
-          "analytics/connect-data",
-          "analytics/dashboards/create-dashboard",
-          "analytics/reports/scheduled-reports"
+        "tab": "Im Büro",
+        "groups": [
+          {
+            "group": "Stammdaten pflegen",
+            "icon": "folder-open",
+            "pages": [
+              "buero/kunden-standorte",
+              "buero/pflanzen-produkte",
+              "buero/mitarbeiter",
+              "buero/ressourcen"
+            ]
+          },
+          {
+            "group": "Planen",
+            "icon": "calendar-days",
+            "pages": [
+              "buero/intervalle-serien",
+              "buero/termine-planen",
+              "buero/routen",
+              "buero/kundenabstimmung"
+            ]
+          },
+          {
+            "group": "Nachweise & Auswertung",
+            "icon": "file-lines",
+            "pages": [
+              "buero/leistungsnachweise",
+              "buero/dashboard",
+              "buero/export"
+            ]
+          },
+          {
+            "group": "Einstellungen",
+            "icon": "gear",
+            "pages": [
+              "buero/einstellungen",
+              "buero/benachrichtigungen"
+            ]
+          }
         ]
       },
       {
-        "group": "Integrations",
-        "icon": "plug",
-        "expanded": true,
+        "tab": "Unterwegs",
+        "groups": [
+          {
+            "group": "Der Arbeitstag",
+            "icon": "route",
+            "pages": [
+              "unterwegs/dein-tag",
+              "unterwegs/termin-abarbeiten"
+            ]
+          },
+          {
+            "group": "Pflege dokumentieren",
+            "icon": "seedling",
+            "pages": [
+              "unterwegs/pflegeergebnisse",
+              "unterwegs/scannen-fastcare",
+              "unterwegs/fotos-probleme",
+              "unterwegs/offline"
+            ]
+          },
+          {
+            "group": "Zusammenarbeit",
+            "icon": "comments",
+            "pages": [
+              "unterwegs/aufgaben",
+              "unterwegs/kommentare"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Wissenswertes",
         "pages": [
-          "integrations/quickstart",
-          "integrations/authentication",
-          "integrations/connectors/crm",
-          "integrations/webhooks/configure"
+          "wissenswertes/glossar",
+          "wissenswertes/tarife",
+          "wissenswertes/faq",
+          "wissenswertes/tipps"
         ]
       }
     ]
@@ -93,5 +153,12 @@
       "x": "https://x.com/yourcompany",
       "linkedin": "https://linkedin.com/company/yourcompany"
     }
-  }
+  },
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/erste-schritte/willkommen",
+      "permanent": false
+    }
+  ]
 }

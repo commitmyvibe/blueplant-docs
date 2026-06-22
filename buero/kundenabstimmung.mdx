@@ -3,12 +3,32 @@ title: "Termine mit Kunden abstimmen"
 description: "So schlagen Sie einem Kunden Termine vor und lassen sie bestätigen."
 ---
 
-Manche Standorte verlangen, dass ein Termin vorher mit dem Kunden abgestimmt wird. Dafür schlagen Sie dem Kunden einen Termin vor; er kann ihn **bestätigen** oder **ablehnen**.
+Manche Standorte verlangen, dass ein Termin vorher mit dem Kunden abgestimmt wird. Dafür schlagen Sie dem Kunden einen Termin vor; er kann ihn **bestätigen** oder **ablehnen**. So vermeiden Sie unnötige Fahrten zu verschlossenen Türen.
 
 ## So stimmen Sie einen Termin ab
 
-{/* TODO: Vorschlag senden, Status verfolgen – Quelle: wissen/funktionen (Termine, scheduleStatus) */}
+<Steps>
+  <Step title="Vorschlag senden">
+    Öffnen Sie den Termin und senden Sie dem Kunden einen Terminvorschlag. Der Termin steht damit auf **vorgeschlagen**.
+  </Step>
+  <Step title="Antwort abwarten">
+    Antwortet der Kunde, wechselt der Termin auf **bestätigt** oder **abgelehnt** – Sie sehen das direkt am Termin und werden benachrichtigt.
+  </Step>
+  <Step title="Bei Ablehnung neu planen">
+    Wurde abgelehnt, schlagen Sie einfach einen neuen Termin vor.
+  </Step>
+</Steps>
+
+## Die Abstimmungs-Zustände
+
+| Zustand | Bedeutung |
+| --- | --- |
+| **Übersprungen** | Für diesen Standort ist keine Abstimmung nötig. |
+| **Offen** | Eine Abstimmung steht an, aber es wurde noch nichts vorgeschlagen. |
+| **Vorgeschlagen** | Der Kunde hat einen Vorschlag erhalten und antwortet noch. |
+| **Bestätigt** | Der Kunde hat zugesagt. |
+| **Abgelehnt** | Der Kunde hat abgelehnt – ein neuer Vorschlag ist nötig. |
 
 ## Gut zu wissen
 
-{/* TODO: Was passiert bei Ablehnung; Status-Bedeutungen */}
+<Note>Bestätigung und Ablehnung lösen eine [Benachrichtigung](/buero/benachrichtigungen) aus, sodass Sie sofort reagieren können.</Note>

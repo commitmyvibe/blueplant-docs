@@ -1,31 +1,74 @@
 ---
 title: "Pflege-Intervalle & Serien"
-description: "So legst du fest, in welchem Rhythmus ein Standort gepflegt wird."
+description: "So legst du fest, in welchem Rhythmus ein Standort gepflegt wird – und lässt blueplant die Termine automatisch erzeugen."
 ---
 
-Die meisten Standorte werden regelmäßig gepflegt – zum Beispiel alle zwei Wochen. Statt jeden Termin einzeln anzulegen, gibst du einmal ein **Intervall** vor. blueplant erzeugt daraus automatisch eine **Serie** von Terminen.
+Die meisten Standorte werden regelmäßig gepflegt – zum Beispiel alle zwei Wochen. Du musst dafür nicht jeden einzelnen Termin von Hand in den Kalender eintragen. Stattdessen sagst du blueplant einmal, in welchem Rhythmus ein Standort besucht werden soll. Diesen Rhythmus nennen wir ein **Intervall**. Aus dem Intervall erzeugt blueplant dann automatisch eine ganze Folge von Terminen – das ist die **Serie**.
 
-## Intervall und Serie – der Zusammenhang
+Das spart viel Tipparbeit und sorgt dafür, dass kein Pflegebesuch vergessen wird.
 
-- Das **Intervall** legt den Rhythmus eines Standorts fest (z. B. „alle 4 Wochen").
-- Die **Serie** ist die konkrete Folge von Terminen, die blueplant aus dem Intervall erzeugt – über einen Zeitraum hinweg, automatisch im Kalender verteilt.
+## Intervall und Serie – wie hängt das zusammen?
+
+Die beiden Begriffe gehören eng zusammen, meinen aber zwei verschiedene Dinge:
+
+- Das **Intervall** ist die Vorgabe: „Dieser Standort wird alle 4 Wochen gepflegt." Es gehört zum Standort und beschreibt nur den Rhythmus.
+- Die **Serie** ist das Ergebnis: die konkrete Folge von Terminen, die blueplant aus dem Intervall berechnet und automatisch über einen Zeitraum im Kalender verteilt – zum Beispiel jeden Termin im Abstand von 4 Wochen.
+
+Kurz gesagt: Du gibst den Rhythmus vor (Intervall), und blueplant macht daraus die einzelnen Termine (Serie).
+
+<Note>
+  Bevor du eine Serie anlegen kannst, müssen der **Kunde** und der **Standort** bereits erfasst sein. Wie das geht, steht unter [Kunden & Standorte anlegen](/buero/kunden-standorte).
+</Note>
 
 ## So legst du eine Serie an
 
 <Steps>
-  <Step title="Standort & Intervall festlegen">
-    Hinterlege am Standort, in welchem Rhythmus gepflegt werden soll.
+  <Step title="Standort öffnen">
+    Öffne im Bereich **Kunden** den passenden Kunden und wechsle zu seinem **Standort**, der regelmäßig gepflegt werden soll.
+  </Step>
+  <Step title="Intervall festlegen">
+    Hinterlege am Standort den gewünschten Rhythmus – also zum Beispiel „alle 4 Wochen". Damit weiß blueplant, in welchem Abstand die Termine entstehen sollen.
   </Step>
   <Step title="Serie erzeugen">
-    Erstelle aus dem Intervall eine Serie. blueplant verteilt die Termine automatisch über den gewählten Zeitraum.
+    Erstelle aus dem Intervall eine Serie und wähle den Zeitraum, für den Termine angelegt werden sollen (zum Beispiel ein halbes Jahr im Voraus). blueplant verteilt die Termine dann automatisch über diesen Zeitraum.
   </Step>
-  <Step title="Bei Bedarf anpassen">
-    Eine Serie lässt sich später bearbeiten oder löschen – dabei entscheidest du, ob bereits angelegte Termine erhalten bleiben.
+  <Step title="Speichern">
+    Sobald du speicherst, erscheinen alle Termine der Serie im Kalender und auf dem Planungsboard – fertig zum Einplanen.
   </Step>
 </Steps>
 
+## Warum das automatisch Termine erzeugt
+
+Eine Serie ist mehr als eine Erinnerung: blueplant legt aus ihr **echte Termine** an, genau wie wenn du sie einzeln erstellt hättest. Jeder dieser Termine kann zugewiesen, verschoben, abgestimmt und unterwegs abgearbeitet werden.
+
+Das bedeutet auch: Du kannst einzelne Termine einer Serie nachträglich anpassen, ohne die ganze Serie zu verändern. Fällt zum Beispiel ein einzelner Termin auf einen Feiertag, verschiebst du nur diesen einen – die übrigen bleiben unberührt.
+
+## So änderst oder löschst du eine Serie
+
+<Steps>
+  <Step title="Serie aufrufen">
+    Öffne die Serie am Standort, dessen Rhythmus du ändern möchtest.
+  </Step>
+  <Step title="Bearbeiten oder löschen">
+    Du kannst den Rhythmus anpassen oder die Serie ganz löschen.
+  </Step>
+  <Step title="Über bestehende Termine entscheiden">
+    Beim Löschen fragt blueplant, ob die **bereits angelegten Termine erhalten** bleiben sollen oder mit entfernt werden. So verlierst du keine Termine, die du eigentlich behalten wolltest.
+  </Step>
+</Steps>
+
+<Warning>
+  Löschst du eine Serie und entscheidest dich, die Termine **nicht** zu behalten, werden alle künftigen Termine dieser Serie entfernt. Bereits durchgeführte und dokumentierte Termine bleiben als Nachweis erhalten.
+</Warning>
+
 ## Gut zu wissen
 
-<Note>Im kostenlosen Tarif darf eine Serie höchstens **6 Monate** umfassen und es ist **ein Intervall pro Standort** möglich. Mit **blueplant Professional** gibt es keine Begrenzung.</Note>
+<Note>
+  Im kostenlosen Tarif darf eine Serie höchstens **6 Monate** umfassen, und es ist **ein Intervall pro Standort** möglich. Mit **blueplant Professional** gibt es keine Begrenzung – du kannst Serien beliebig weit in die Zukunft anlegen.
+</Note>
 
-Die erzeugten Termine bearbeitest und verschiebst du wie gewohnt unter [Termine planen](/buero/termine-planen).
+- Die erzeugten Termine bearbeitest und verschiebst du wie jeden anderen Termin – siehe [Termine planen](/buero/termine-planen).
+- Ob ein Standort vor jedem Besuch eine Zustimmung des Kunden braucht, klärst du über die [Kundenabstimmung](/buero/kundenabstimmung).
+- Die Reihenfolge der Termine eines Tages legst du unter [Touren & Routen](/buero/routen) fest.
+
+{/* TODO: Screenshot Serien-/Intervall-Formular am Standort (Test-Mandant) einfügen */}

@@ -43,18 +43,19 @@
     "directory": "card",
     "tabs": [
       {
-        "tab": "Erste Schritte",
-        "pages": [
-          "erste-schritte/willkommen",
-          "erste-schritte/die-zwei-arbeitsbereiche",
-          "erste-schritte/anmelden",
-          "erste-schritte/rollen",
-          "erste-schritte/grundbegriffe"
-        ]
-      },
-      {
-        "tab": "Im Büro",
+        "tab": "Dokumentation",
         "groups": [
+          {
+            "group": "Erste Schritte",
+            "icon": "rocket",
+            "pages": [
+              "erste-schritte/willkommen",
+              "erste-schritte/die-zwei-arbeitsbereiche",
+              "erste-schritte/anmelden",
+              "erste-schritte/rollen",
+              "erste-schritte/grundbegriffe"
+            ]
+          },
           {
             "group": "Stammdaten pflegen",
             "icon": "folder-open",
@@ -77,7 +78,7 @@
           },
           {
             "group": "Nachweise & Auswertung",
-            "icon": "file-lines",
+            "icon": "file-text",
             "pages": [
               "buero/leistungsnachweise",
               "buero/dashboard",
@@ -86,17 +87,12 @@
           },
           {
             "group": "Einstellungen",
-            "icon": "gear",
+            "icon": "settings",
             "pages": [
               "buero/einstellungen",
               "buero/benachrichtigungen"
             ]
-          }
-        ]
-      },
-      {
-        "tab": "Unterwegs",
-        "groups": [
+          },
           {
             "group": "Der Arbeitstag",
             "icon": "route",
@@ -107,7 +103,7 @@
           },
           {
             "group": "Pflege dokumentieren",
-            "icon": "seedling",
+            "icon": "sprout",
             "pages": [
               "unterwegs/pflegeergebnisse",
               "unterwegs/scannen-fastcare",
@@ -117,21 +113,22 @@
           },
           {
             "group": "Zusammenarbeit",
-            "icon": "comments",
+            "icon": "messages-square",
             "pages": [
               "unterwegs/aufgaben",
               "unterwegs/kommentare"
             ]
+          },
+          {
+            "group": "Wissenswertes",
+            "icon": "book-open",
+            "pages": [
+              "wissenswertes/glossar",
+              "wissenswertes/tarife",
+              "wissenswertes/faq",
+              "wissenswertes/tipps"
+            ]
           }
-        ]
-      },
-      {
-        "tab": "Wissenswertes",
-        "pages": [
-          "wissenswertes/glossar",
-          "wissenswertes/tarife",
-          "wissenswertes/faq",
-          "wissenswertes/tipps"
         ]
       }
     ]

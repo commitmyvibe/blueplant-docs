@@ -147,8 +147,8 @@
     "links": [],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Zur App",
+      "href": "https://www.blueplant.app/"
     }
   },
   "footer": {},

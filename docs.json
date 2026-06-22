@@ -94,29 +94,32 @@
             ]
           },
           {
-            "group": "Der Arbeitstag",
-            "icon": "route",
+            "group": "Arbeiten mit der App",
+            "icon": "smartphone",
             "pages": [
-              "unterwegs/dein-tag",
-              "unterwegs/termin-abarbeiten"
-            ]
-          },
-          {
-            "group": "Pflege dokumentieren",
-            "icon": "sprout",
-            "pages": [
-              "unterwegs/pflegeergebnisse",
-              "unterwegs/scannen-fastcare",
-              "unterwegs/fotos-probleme",
-              "unterwegs/offline"
-            ]
-          },
-          {
-            "group": "Zusammenarbeit",
-            "icon": "messages-square",
-            "pages": [
-              "unterwegs/aufgaben",
-              "unterwegs/kommentare"
+              {
+                "group": "Der Arbeitstag",
+                "pages": [
+                  "unterwegs/dein-tag",
+                  "unterwegs/termin-abarbeiten"
+                ]
+              },
+              {
+                "group": "Pflege dokumentieren",
+                "pages": [
+                  "unterwegs/pflegeergebnisse",
+                  "unterwegs/scannen-fastcare",
+                  "unterwegs/fotos-probleme",
+                  "unterwegs/offline"
+                ]
+              },
+              {
+                "group": "Zusammenarbeit",
+                "pages": [
+                  "unterwegs/aufgaben",
+                  "unterwegs/kommentare"
+                ]
+              }
             ]
           },
           {

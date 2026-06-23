@@ -1,0 +1,660 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "blueplant API",
+    "version": "v1",
+    "description": "Öffentliche REST-API von blueplant zum Anlegen von Stammdaten (Kunden, Standorte, Kontaktpersonen, Pflanzen, Behälter und Produkte) aus anderen Systemen. Authentifiziert wird mit deinem API-Schlüssel aus den Mandanten-Einstellungen."
+  },
+  "servers": [
+    {
+      "url": "https://api.blueplant.app/api/v1",
+      "description": "Produktiv"
+    }
+  ],
+  "security": [
+    {
+      "ApiKey": []
+    }
+  ],
+  "paths": {
+    "/customer": {
+      "post": {
+        "operationId": "createCustomer",
+        "summary": "Kunde anlegen",
+        "description": "Legt einen neuen Kunden an. Der Kunde ist die übergeordnete Einheit, der Standorte, Kontaktpersonen und Produkte zugeordnet werden.",
+        "tags": ["Kunden & Standorte"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["companyName", "address"],
+                "properties": {
+                  "companyName": {
+                    "type": "string",
+                    "description": "Name des Unternehmens."
+                  },
+                  "address": {
+                    "$ref": "#/components/schemas/Address"
+                  },
+                  "externalId": {
+                    "type": "string",
+                    "description": "Eigene Referenz aus deinem System, um den Kunden später zuzuordnen."
+                  },
+                  "mainContactPerson": {
+                    "$ref": "#/components/schemas/MainContactPerson"
+                  },
+                  "validFrom": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Beginn der Gültigkeit."
+                  },
+                  "validUntil": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Ende der Gültigkeit."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Kunde angelegt.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/IdResponse" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/ValidationError" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "429": { "$ref": "#/components/responses/TooManyRequests" }
+        }
+      }
+    },
+    "/customer/site": {
+      "post": {
+        "operationId": "createSite",
+        "summary": "Standort anlegen",
+        "description": "Legt einen Standort für einen bestehenden Kunden an. Ein Standort ist ein Ort, an dem Pflanzen stehen und gepflegt werden.",
+        "tags": ["Kunden & Standorte"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["customerId", "name", "address", "needsAppointment", "hasKey"],
+                "properties": {
+                  "customerId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "ID des Kunden, zu dem der Standort gehört."
+                  },
+                  "name": {
+                    "type": "string",
+                    "maxLength": 60,
+                    "description": "Bezeichnung des Standorts."
+                  },
+                  "address": {
+                    "$ref": "#/components/schemas/Address"
+                  },
+                  "needsAppointment": {
+                    "type": "boolean",
+                    "description": "Ob für diesen Standort Termine geplant werden müssen."
+                  },
+                  "hasKey": {
+                    "type": "boolean",
+                    "description": "Ob für den Zugang ein Schlüssel vorhanden ist."
+                  },
+                  "comment": {
+                    "type": "string",
+                    "maxLength": 150,
+                    "description": "Freier Hinweis zum Standort."
+                  },
+                  "appointmentPreparationTimeInMinutes": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "description": "Zeitpuffer in Minuten, den blueplant vor einem Termin an diesem Standort einplant."
+                  },
+                  "attendingIntervals": {
+                    "type": "array",
+                    "description": "Besuchsintervalle des Standorts. TODO: genaue Struktur der Intervall-Objekte mit dem Dev-Team abstimmen.",
+                    "items": { "type": "object" }
+                  },
+                  "openingHours": {
+                    "type": "array",
+                    "default": [],
+                    "description": "Öffnungszeiten des Standorts. TODO: genaue Struktur der Öffnungszeit-Objekte mit dem Dev-Team abstimmen.",
+                    "items": { "type": "object" }
+                  },
+                  "serviceRecordRecipientId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Empfänger der Leistungsnachweise für diesen Standort."
+                  },
+                  "callOutFee": {
+                    "type": "number",
+                    "minimum": 0,
+                    "description": "Anfahrtspauschale für diesen Standort."
+                  },
+                  "assignedEmployeeId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Standardmäßig zugewiesene mitarbeitende Person."
+                  },
+                  "contactPersonId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Ansprechpartner am Standort."
+                  },
+                  "contractId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "Zugehöriger Vertrag."
+                  },
+                  "validFrom": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Beginn der Gültigkeit."
+                  },
+                  "validUntil": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Ende der Gültigkeit."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Standort angelegt.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/IdResponse" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/ValidationError" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "429": { "$ref": "#/components/responses/TooManyRequests" }
+        }
+      }
+    },
+    "/customer/contact-person": {
+      "post": {
+        "operationId": "createContactPerson",
+        "summary": "Kontaktperson anlegen",
+        "description": "Legt eine Kontaktperson an und ordnet sie optional einem Kunden zu.",
+        "tags": ["Kunden & Standorte"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "customerId": {
+                    "type": "string",
+                    "format": "uuid",
+                    "description": "ID des Kunden, zu dem die Kontaktperson gehört."
+                  },
+                  "salutation": {
+                    "type": "string",
+                    "enum": ["female", "male", "guess"],
+                    "description": "Anrede. `guess` überlässt blueplant die Ableitung."
+                  },
+                  "firstName": {
+                    "type": "string",
+                    "description": "Vorname."
+                  },
+                  "lastName": {
+                    "type": "string",
+                    "description": "Nachname."
+                  },
+                  "phoneNumberLandline": {
+                    "type": "string",
+                    "description": "Festnetznummer."
+                  },
+                  "phoneNumberMobile": {
+                    "type": "string",
+                    "description": "Mobilnummer."
+                  },
+                  "emailAddress": {
+                    "type": "string",
+                    "format": "email",
+                    "description": "E-Mail-Adresse."
+                  },
+                  "function": {
+                    "type": "string",
+                    "description": "Funktion bzw. Rolle der Person beim Kunden."
+                  },
+                  "isMainContact": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Ob diese Person der Hauptansprechpartner ist."
+                  },
+                  "validFrom": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Beginn der Gültigkeit."
+                  },
+                  "validUntil": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Ende der Gültigkeit."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Kontaktperson angelegt.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/IdResponse" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/ValidationError" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "429": { "$ref": "#/components/responses/TooManyRequests" }
+        }
+      }
+    },
+    "/product/plant": {
+      "post": {
+        "operationId": "createPlant",
+        "summary": "Pflanze anlegen",
+        "description": "Legt eine Pflanzenart im Katalog an. Pflanzenarten werden später Produkten zugeordnet.",
+        "tags": ["Pflanzen & Produkte"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["name"],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Name der Pflanzenart."
+                  },
+                  "validFrom": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Beginn der Gültigkeit."
+                  },
+                  "validUntil": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Ende der Gültigkeit."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Pflanze angelegt.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/IdResponse" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/ValidationError" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "429": { "$ref": "#/components/responses/TooManyRequests" }
+        }
+      }
+    },
+    "/product/plant/container": {
+      "post": {
+        "operationId": "createPlantContainer",
+        "summary": "Pflanzenbehälter anlegen",
+        "description": "Legt einen Pflanzenbehälter (z. B. Topf oder Kübel) mit optionalen Größen an.",
+        "tags": ["Pflanzen & Produkte"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["name"],
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "description": "Name des Behälters."
+                  },
+                  "sizes": {
+                    "type": "array",
+                    "description": "Verfügbare Größen des Behälters.",
+                    "items": { "$ref": "#/components/schemas/Size" }
+                  },
+                  "validFrom": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Beginn der Gültigkeit."
+                  },
+                  "validUntil": {
+                    "type": "string",
+                    "format": "date",
+                    "description": "Ende der Gültigkeit."
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Behälter angelegt. Die Antwort enthält die ID des Behälters sowie die IDs der angelegten Größen.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid",
+                      "description": "ID des angelegten Behälters."
+                    },
+                    "sizes": {
+                      "type": "array",
+                      "description": "Angelegte Größen mit ihren IDs.",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": { "type": "string", "format": "uuid" },
+                          "name": { "type": "string" }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/ValidationError" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "429": { "$ref": "#/components/responses/TooManyRequests" }
+        }
+      }
+    },
+    "/product/product": {
+      "post": {
+        "operationId": "createProduct",
+        "summary": "Produkt anlegen",
+        "description": "Legt ein einzelnes Produkt an. Ein Produkt ist eine konkrete Pflanze an einem Standort eines Kunden.",
+        "tags": ["Pflanzen & Produkte"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ProductInput" }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Produkt angelegt.",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/IdResponse" }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/ValidationError" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "429": { "$ref": "#/components/responses/TooManyRequests" }
+        }
+      }
+    },
+    "/product/products": {
+      "post": {
+        "operationId": "createProducts",
+        "summary": "Produkte anlegen (Bulk)",
+        "description": "Legt mehrere Produkte in einem Aufruf an. Der Request-Body ist ein Array von Produkt-Objekten.",
+        "tags": ["Pflanzen & Produkte"],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": { "$ref": "#/components/schemas/ProductInput" }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Produkte angelegt. TODO: genaue Erfolgs-Antwort mit dem Dev-Team bestätigen – vermutlich ein Array von Objekten mit `id`.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": { "$ref": "#/components/schemas/IdResponse" }
+                }
+              }
+            }
+          },
+          "400": { "$ref": "#/components/responses/ValidationError" },
+          "401": { "$ref": "#/components/responses/Unauthorized" },
+          "429": { "$ref": "#/components/responses/TooManyRequests" }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKey": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "ApiKey",
+        "description": "Dein API-Schlüssel aus den Mandanten-Einstellungen, gesendet im Header `ApiKey`."
+      }
+    },
+    "responses": {
+      "ValidationError": {
+        "description": "Ungültiges Request-Payload (Validierungsfehler).",
+        "content": {
+          "application/json": {
+            "schema": { "$ref": "#/components/schemas/ValidationError" }
+          }
+        }
+      },
+      "Unauthorized": {
+        "description": "Authentifizierung fehlgeschlagen – prüfe deinen API-Schlüssel."
+      },
+      "TooManyRequests": {
+        "description": "Zu viele Anfragen – versuche es später erneut."
+      }
+    },
+    "schemas": {
+      "Address": {
+        "type": "object",
+        "description": "Postanschrift mit optionaler Geo-Position.",
+        "required": ["streetName", "houseNumber", "zipCode", "city"],
+        "properties": {
+          "streetName": { "type": "string", "description": "Straße." },
+          "houseNumber": { "type": "string", "description": "Hausnummer." },
+          "zipCode": { "type": "string", "description": "Postleitzahl." },
+          "city": { "type": "string", "description": "Ort." },
+          "location": { "$ref": "#/components/schemas/Location" }
+        }
+      },
+      "Location": {
+        "type": "object",
+        "description": "Geografische Position.",
+        "properties": {
+          "lat": {
+            "type": "number",
+            "minimum": -90,
+            "maximum": 90,
+            "description": "Breitengrad."
+          },
+          "lng": {
+            "type": "number",
+            "minimum": -180,
+            "maximum": 180,
+            "description": "Längengrad."
+          }
+        }
+      },
+      "MainContactPerson": {
+        "type": "object",
+        "description": "Hauptansprechpartner des Kunden. TODO: genaue Feldnamen mit dem Dev-Team bestätigen.",
+        "properties": {
+          "salutation": {
+            "type": "string",
+            "enum": ["female", "male", "guess"],
+            "description": "Anrede."
+          },
+          "firstName": { "type": "string", "description": "Vorname." },
+          "lastName": { "type": "string", "description": "Nachname." },
+          "phoneNumberMobile": { "type": "string", "description": "Mobilnummer." },
+          "emailAddress": { "type": "string", "format": "email", "description": "E-Mail-Adresse." },
+          "function": { "type": "string", "description": "Funktion beim Kunden." }
+        }
+      },
+      "Size": {
+        "type": "object",
+        "description": "Größe eines Pflanzenbehälters (Maße in cm).",
+        "required": ["name"],
+        "properties": {
+          "name": { "type": "string", "description": "Bezeichnung der Größe." },
+          "height": { "type": "number", "description": "Höhe in cm." },
+          "width": { "type": "number", "description": "Breite in cm." },
+          "length": { "type": "number", "description": "Länge in cm." },
+          "diameter": { "type": "number", "description": "Durchmesser in cm." }
+        }
+      },
+      "LocationDetails": {
+        "type": "object",
+        "description": "Genauer Standort des Produkts innerhalb des Gebäudes.",
+        "properties": {
+          "building": { "type": "string", "description": "Gebäude." },
+          "floor": { "type": "integer", "description": "Etage." },
+          "room": { "type": "string", "description": "Raum." },
+          "detail": { "type": "string", "description": "Genauere Ortsangabe." },
+          "note": { "type": "string", "description": "Zusätzlicher Hinweis." }
+        }
+      },
+      "ProductInput": {
+        "type": "object",
+        "required": ["name", "customerId", "plantId", "siteId"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "maxLength": 64,
+            "description": "Bezeichnung des Produkts."
+          },
+          "customerId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "ID des Kunden."
+          },
+          "plantId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "ID der Pflanzenart."
+          },
+          "siteId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "ID des Standorts."
+          },
+          "containerId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "ID des Pflanzenbehälters."
+          },
+          "containerSizeId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "ID der Behältergröße."
+          },
+          "externalId": {
+            "type": "string",
+            "maxLength": 128,
+            "description": "Eigene Referenz aus deinem System."
+          },
+          "externalOrderNumber": {
+            "type": "string",
+            "maxLength": 128,
+            "description": "Bestellnummer aus deinem System."
+          },
+          "initialPrice": {
+            "type": "number",
+            "minimum": 0,
+            "description": "Anschaffungspreis."
+          },
+          "isInheritedProduct": {
+            "type": "boolean",
+            "default": false,
+            "description": "Ob das Produkt von einem anderen geerbt wurde."
+          },
+          "locationDetails": {
+            "$ref": "#/components/schemas/LocationDetails"
+          },
+          "notes": {
+            "type": "string",
+            "maxLength": 512,
+            "description": "Freie Notizen zum Produkt."
+          },
+          "placementDate": {
+            "type": "string",
+            "format": "date",
+            "description": "Datum der Aufstellung."
+          },
+          "validFrom": {
+            "type": "string",
+            "format": "date",
+            "description": "Beginn der Gültigkeit."
+          },
+          "validUntil": {
+            "type": "string",
+            "format": "date",
+            "description": "Ende der Gültigkeit."
+          }
+        }
+      },
+      "IdResponse": {
+        "type": "object",
+        "description": "Antwort mit der ID des angelegten Objekts.",
+        "properties": {
+          "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "ID des angelegten Objekts."
+          }
+        }
+      },
+      "ValidationError": {
+        "type": "object",
+        "description": "Validierungsfehler mit feldbezogenen Meldungen.",
+        "properties": {
+          "message": {
+            "type": "string",
+            "example": "invalid input"
+          },
+          "errors": {
+            "type": "array",
+            "description": "Liste der fehlerhaften Felder mit Meldungen.",
+            "items": { "type": "object" }
+          }
+        }
+      }
+    }
+  }
+}

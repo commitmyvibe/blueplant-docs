@@ -1,0 +1,51 @@
+---
+title: "Die blueplant-API"
+description: "Wie du Stammdaten aus anderen Systemen automatisch in blueplant anlegst."
+---
+
+Mit der blueplant-API verbindest du blueplant mit anderer Software. Statt Daten von Hand einzugeben, legst du sie automatisiert an – zum Beispiel beim Übernehmen von Kunden aus deinem Warenwirtschafts- oder CRM-System.
+
+Die API ist eine **REST-Schnittstelle**: Dein System schickt Anfragen an eine Internetadresse, blueplant legt die Daten an und antwortet mit der ID des neuen Objekts.
+
+<Note>
+  Die API ist eine **Anlage-Schnittstelle**: Du kannst damit neue Stammdaten **anlegen**. Daten lesen oder ändern geht über die API derzeit nicht – dafür nutzt du das Web-Programm.
+</Note>
+
+## Was du anlegen kannst
+
+<CardGroup cols={2}>
+  <Card title="Kunden & Standorte" icon="building">
+    Kunden, ihre Standorte und Kontaktpersonen.
+  </Card>
+  <Card title="Pflanzen & Produkte" icon="sprout">
+    Pflanzenarten, Behälter und die Produkte an den Standorten.
+  </Card>
+</CardGroup>
+
+## Basis-Adresse
+
+Alle Anfragen gehen an:
+
+```
+https://api.blueplant.app/api/v1
+```
+
+Daten werden als **JSON** gesendet und empfangen (`Content-Type: application/json`).
+
+## So legst du los
+
+<Steps>
+  <Step title="API-Schlüssel erstellen">
+    Erzeuge im Web-Programm unter [Einstellungen](/buero/einstellungen) einen **API-Schlüssel**. Mehr dazu auf der Seite [Authentifizierung](/api/authentifizierung).
+  </Step>
+  <Step title="Schlüssel mitsenden">
+    Schicke den Schlüssel bei jeder Anfrage im Header **`ApiKey`** mit.
+  </Step>
+  <Step title="Erste Anfrage senden">
+    Lege zum Beispiel einen Kunden an – siehe [Kunde anlegen](/api/customer).
+  </Step>
+</Steps>
+
+<Tip>
+  Eine sinnvolle Reihenfolge: erst **Kunde**, dann **Standort** und **Kontaktperson**, danach **Pflanze** und **Behälter** und zuletzt das **Produkt** – denn ein Produkt verweist auf Kunde, Standort und Pflanze.
+</Tip>

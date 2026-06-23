@@ -1,0 +1,62 @@
+---
+title: "Authentifizierung"
+description: "Wie du einen API-Schlüssel erstellst und bei Anfragen mitsendest."
+---
+
+Jede Anfrage an die blueplant-API braucht einen **API-Schlüssel**. Damit weist sich dein System gegenüber blueplant aus.
+
+## API-Schlüssel erstellen
+
+<Steps>
+  <Step title="Einstellungen öffnen">
+    Klicke im Web-Programm in der linken Menüleiste auf **Einstellungen**.
+  </Step>
+  <Step title="API-Schlüssel erzeugen">
+    Im Abschnitt **API & Schnittstellen** erzeugst du einen neuen Schlüssel. Kopiere ihn sofort und bewahre ihn sicher auf.
+  </Step>
+</Steps>
+
+<Note>
+  Den API-Schlüssel verwaltet die Rolle **Verwaltung** (siehe [Wer darf was](/erste-schritte/rollen)). Es gibt **einen** Schlüssel je Betrieb.
+</Note>
+
+## Schlüssel mitsenden
+
+Sende den Schlüssel bei jeder Anfrage im Header **`ApiKey`** mit:
+
+```bash
+curl -X POST https://api.blueplant.app/api/v1/customer \
+  -H "ApiKey: DEIN_API_SCHLUESSEL" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "companyName": "Muster GmbH",
+    "address": {
+      "streetName": "Musterstraße",
+      "houseNumber": "1",
+      "zipCode": "12345",
+      "city": "Musterstadt"
+    }
+  }'
+```
+
+<Warning>
+  Ein API-Schlüssel ist wie ein Passwort und erlaubt Zugriff auf die in blueplant hinterlegten Daten. Gib ihn nur an vertrauenswürdige Systeme weiter und niemals in öffentlichen Code (z. B. im Browser).
+</Warning>
+
+<Warning>
+  Wenn du einen neuen Schlüssel erzeugst oder den vorhandenen löschst, wird der alte **ungültig**. Integrationen, die ihn nutzen, funktionieren dann nicht mehr.
+</Warning>
+
+## Fehlermeldungen
+
+Schlägt eine Anfrage fehl, antwortet die API mit einem dieser Status-Codes:
+
+| Code | Bedeutung | Was tun |
+|---|---|---|
+| **400** | Ungültige Daten im Request | Pflichtfelder und Formate prüfen |
+| **401** | Authentifizierung fehlgeschlagen | API-Schlüssel und Header `ApiKey` prüfen |
+| **403** | Anfrage nicht erlaubt/erkannt | Methode und Pfad prüfen |
+| **413** | Inhaltstyp ungültig | `Content-Type: application/json` setzen |
+| **415** | Datenmenge zu groß | Kleinere Anfrage senden |
+| **429** | Zu viele Anfragen | Kurz warten und erneut versuchen |
+| **500** | Interner Fehler | Später erneut versuchen, ggf. Support kontaktieren |

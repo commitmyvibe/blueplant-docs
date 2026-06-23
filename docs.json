@@ -65,6 +65,8 @@
             "pages": [
               "buero/kunden-standorte",
               "buero/pflanzen-produkte",
+              "buero/produktakte",
+              "buero/lauflisten",
               "buero/mitarbeiter",
               "buero/ressourcen"
             ]
@@ -75,8 +77,18 @@
             "pages": [
               "buero/intervalle-serien",
               "buero/termine-planen",
+              "buero/terminfarben",
+              "buero/beendete-termine",
               "buero/routen",
               "buero/kundenabstimmung"
+            ]
+          },
+          {
+            "group": "Aufgaben & Kommentare",
+            "icon": "messages-square",
+            "pages": [
+              "buero/aufgaben",
+              "buero/kommentare"
             ]
           },
           {

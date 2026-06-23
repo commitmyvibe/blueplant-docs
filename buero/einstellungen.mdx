@@ -13,6 +13,29 @@ Diese Einstellungen ändert man selten – meist nur einmal bei der Einrichtung.
   </a>
 </Frame>
 
+## Was alles zur Administration gehört
+
+Die Mandanten-Einstellungen sind ein Teil der Administration. Weitere Verwaltungsbereiche haben jeweils eine eigene Seite:
+
+<CardGroup cols={2}>
+  <Card title="Ressourcen" icon="box" href="/buero/ressourcen">
+    Pflanzen, Gefäße, Substrate, Zusatzleistungen und Fahrzeuge.
+  </Card>
+  <Card title="Mitarbeiter" icon="users" href="/buero/mitarbeiter">
+    Konten, Rollen, Berechtigungen und Arbeitszeiten.
+  </Card>
+  <Card title="Leistungsnachweise" icon="file-text" href="/buero/leistungsnachweise">
+    Belege gestalten und automatisch erzeugen lassen.
+  </Card>
+  <Card title="Tarif & Abrechnung" icon="credit-card" href="/wissenswertes/tarife">
+    Welche Grenzen gelten und was Professional bietet.
+  </Card>
+</CardGroup>
+
+<Note>
+  Die **Einstellungen** und die **Abrechnung** sieht und ändert nur die Rolle **Verwaltung** (siehe [Wer darf was](/erste-schritte/rollen)).
+</Note>
+
 ## So öffnest du die Einstellungen
 
 <Steps>
@@ -29,6 +52,14 @@ Diese Einstellungen ändert man selten – meist nur einmal bei der Einrichtung.
 
 ## Wichtige Einstellungen
 
+### Regeln für Termine
+
+- **Vorbereitungszeit** – ein Zeitpuffer, den blueplant bei der Planung vor einem Termin einrechnet (z. B. fürs Ein- und Ausladen).
+- **Durchschnittliche Pflegedauer je Pflanze** – ein Richtwert, mit dem blueplant abschätzt, wie lange ein Besuch dauert, und Termine entsprechend einplant.
+- **Leistungsnachweis automatisch erzeugen** – ob nach jedem abgeschlossenen Termin automatisch ein [Leistungsnachweis](/buero/leistungsnachweise) erstellt wird.
+- **Termine standardmäßig als Vorschlag** – ob neue Termine an Standorten mit [Kundenabstimmung](/buero/kundenabstimmung) gleich als Vorschlag an den Kunden gehen.
+- **Termin-Bewertung** – ob die Person nach einem Termin eine kurze Bewertung abgeben kann.
+
 ### Regeln für die Pflege unterwegs
 
 - **QR-Scan-Pflicht** – Du kannst festlegen, dass eine Pflanze vor dem Pflegen zwingend gescannt werden muss. Jede Pflanze trägt einen kleinen QR-Code (einen Aufkleber mit einem Quadrat-Muster, das das Smartphone lesen kann). Ist die Scan-Pflicht aktiv, stellt das sicher, dass wirklich die richtige Pflanze dokumentiert wird und nichts verwechselt wird.
@@ -42,10 +73,19 @@ Diese Einstellungen ändert man selten – meist nur einmal bei der Einrichtung.
 ### Stammdaten & Anzeige des Betriebs
 
 - **Sprache & Region** – Hier hinterlegst du **Land** und **Währung** deines Betriebs. Davon hängt unter anderem ab, wie Beträge und Formate angezeigt werden.
+- **Ziel-Adresse der QR-Codes** – die Internetadresse, auf die die QR-Codes an deinen Pflanzen verweisen.
 
 <Note>
   Die einzelnen Mitarbeitenden können in der App zusätzlich ihre **eigene Anzeigesprache** wählen. Das ändert nur ihre persönliche Ansicht und nicht die Einstellungen des ganzen Betriebs.
 </Note>
+
+### API & Schnittstellen
+
+Für die Anbindung an andere Systeme kannst du einen **API-Schlüssel** erzeugen und bei Bedarf wieder löschen. Über die Schnittstelle lassen sich Daten automatisiert mit anderer Software austauschen.
+
+<Warning>
+  Ein API-Schlüssel ist wie ein Passwort: Gib ihn nur an vertrauenswürdige Systeme weiter und lösche ihn, sobald er nicht mehr gebraucht wird.
+</Warning>
 
 ## Gut zu wissen
 

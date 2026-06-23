@@ -148,6 +148,38 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "API",
+        "groups": [
+          {
+            "group": "Erste Schritte",
+            "icon": "plug",
+            "pages": [
+              "api/einfuehrung",
+              "api/authentifizierung"
+            ]
+          },
+          {
+            "group": "Kunden & Standorte",
+            "icon": "building",
+            "pages": [
+              "api/customer",
+              "api/site",
+              "api/contact-person"
+            ]
+          },
+          {
+            "group": "Pflanzen & Produkte",
+            "icon": "sprout",
+            "pages": [
+              "api/product/plant",
+              "api/product/container",
+              "api/product/product",
+              "api/product/products"
+            ]
+          }
+        ]
       }
     ]
   },

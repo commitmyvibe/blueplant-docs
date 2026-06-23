@@ -150,3 +150,25 @@ img.nav-logo {
   margin-top: 0.75rem;    /* mehr Abstand nach oben */
   margin-bottom: 0.25rem;
 }
+
+/* Breitere linke Navigation (Sidebar).
+   luma-Standard ist 14rem (w-56). Hier auf --bp-sidebar-width angehoben.
+   Sidebar-Breite, reservierter Platz (#body-content) und Content-Zentrierung
+   (#content-area) müssen denselben Wert nutzen, sonst verrutscht der Inhalt. */
+@media (min-width: 1024px) {
+  :root {
+    --bp-sidebar-width: 19rem;
+  }
+
+  #sidebar-content {
+    width: var(--bp-sidebar-width) !important;
+  }
+
+  #body-content {
+    padding-left: var(--bp-sidebar-width) !important;
+  }
+
+  #content-area {
+    margin-left: max(0px, calc(50vw - 348px - var(--bp-sidebar-width))) !important;
+  }
+}

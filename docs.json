@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "almond",
+  "theme": "luma",
   "name": "Product Guide",
   "description": "Hilfe und Anleitungen für blueplant – die Software für professionelle Raumbegrünung und Pflanzenpflege.",
   "colors": {

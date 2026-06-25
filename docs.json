@@ -123,6 +123,7 @@
                 "group": "Pflege dokumentieren",
                 "pages": [
                   "unterwegs/pflegeergebnisse",
+                  "unterwegs/filtern-sortieren",
                   "unterwegs/scannen-fastcare",
                   "unterwegs/fotos-probleme",
                   "unterwegs/offline"
@@ -141,8 +142,7 @@
                   "unterwegs/app-ueberblick",
                   "unterwegs/anmelden-app",
                   "unterwegs/einstellungen",
-                  "unterwegs/anzeigeoptionen",
-                  "unterwegs/filtern-sortieren"
+                  "unterwegs/anzeigeoptionen"
                 ]
               }
             ]

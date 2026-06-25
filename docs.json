@@ -134,6 +134,16 @@
                   "unterwegs/aufgaben",
                   "unterwegs/kommentare"
                 ]
+              },
+              {
+                "group": "App einrichten & anpassen",
+                "pages": [
+                  "unterwegs/app-ueberblick",
+                  "unterwegs/anmelden-app",
+                  "unterwegs/einstellungen",
+                  "unterwegs/anzeigeoptionen",
+                  "unterwegs/filtern-sortieren"
+                ]
               }
             ]
           },

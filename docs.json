@@ -124,7 +124,7 @@
                 "pages": [
                   "unterwegs/pflegeergebnisse",
                   "unterwegs/filtern-sortieren",
-                  "unterwegs/scannen-fastcare",
+                  "unterwegs/scannen-schnellpflege",
                   "unterwegs/fotos-probleme",
                   "unterwegs/offline"
                 ]
@@ -211,6 +211,11 @@
       "source": "/",
       "destination": "/erste-schritte/willkommen",
       "permanent": false
+    },
+    {
+      "source": "/unterwegs/scannen-fastcare",
+      "destination": "/unterwegs/scannen-schnellpflege",
+      "permanent": true
     }
   ]
 }

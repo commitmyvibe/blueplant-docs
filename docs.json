@@ -30,12 +30,6 @@
           "href": "/erste-schritte/willkommen"
         },
         {
-          "anchor": "Changelog",
-          "icon": "scroll-text",
-          "href": "https://www.mintlify.com/docs/changelog",
-          "hidden": true
-        },
-        {
           "anchor": "Help",
           "icon": "life-buoy",
           "href": "https://www.mintlify.com/docs/contact-support",
@@ -189,6 +183,12 @@
               "api/product/products"
             ]
           }
+        ]
+      },
+      {
+        "tab": "Changelog",
+        "pages": [
+          "changelog"
         ]
       }
     ]

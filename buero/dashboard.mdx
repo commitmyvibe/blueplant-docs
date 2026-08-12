@@ -1,63 +1,151 @@
 ---
 title: "Dashboard & Auswertungen"
-description: "So liest du die wichtigsten Kennzahlen und Trends deines Betriebs auf einen Blick."
+description: "Drei Sichten auf deinen Betrieb: was heute läuft, wie dein Bestand wächst und wie dein Team arbeitet."
 ---
 
-Das **Dashboard** ist deine Startseite im Büro. Sobald du dich anmeldest, landest du hier. Es fasst auf einer Seite zusammen, wie es um deinen Betrieb steht – wie viele Kunden, Standorte und Pflanzen du betreust, was heute an Terminen ansteht und wie sich die Pflege über die Zeit entwickelt. Du musst dafür nichts einrichten: blueplant berechnet alle Zahlen automatisch aus deinen Daten.
+Das **Dashboard** ist deine Startseite im Büro. Sobald du dich anmeldest, landest du hier. Es beantwortet drei verschiedene Fragen – und weil das drei verschiedene Blickwinkel sind, ist es in **drei Tabs** aufgeteilt:
 
-<Frame caption="Das Dashboard im Web-Programm: alle wichtigen Kennzahlen und Diagramme auf einen Blick. Zum Vergrößern anklicken (öffnet in neuem Tab).">
-  <a href="/images/buero/dashboard.png" target="_blank" rel="noopener noreferrer">
-    <img src="/images/buero/dashboard.png" alt="Dashboard im blueplant Web-Programm mit Kennzahl-Kacheln und Diagrammen" noZoom />
+| Tab | Frage | Zeitraum |
+| --- | --- | --- |
+| **Heute** | Was läuft gerade? | der laufende Tag |
+| **Bestand** | Wie wächst mein Bestand, wo fehlt Planung? | Stichtag heute |
+| **Team & Qualität** | Wie arbeitet mein Team, wo hakt es? | die letzten 30 Tage |
+
+Jeder Tab hat einen **festen Zeitraum**. Bei „Bestand" und „Team & Qualität" steht er oben rechts angeschrieben – „Stichtag: 12.08.2026" beziehungsweise „Zeitraum: letzte 30 Tage". Der Tab „Heute" braucht keinen Hinweis, er zeigt immer den laufenden Tag. Deshalb gibt es keinen Zeitraum-Filter mehr, den du erst einstellen musst: Du siehst sofort, worauf sich eine Zahl bezieht.
+
+Der gewählte Tab steht in der Adresszeile deines Browsers. Du kannst dir also den Tab, den du am häufigsten brauchst, als Lesezeichen speichern und landest beim nächsten Mal direkt dort.
+
+Du musst nichts einrichten – blueplant berechnet alle Zahlen automatisch aus deinen Daten.
+
+## So liest du eine Kennzahl-Kachel
+
+Eine **Kennzahl** (oft auch „KPI" genannt) ist eine wichtige Zahl, die dir mit einem Blick zeigt, wo du stehst. Die Kacheln sind alle nach demselben Muster aufgebaut:
+
+- **Die große Zahl** ist der Wert selbst.
+- **Der Zusatz darunter** ordnet ihn ein – etwa „von 12 Mitarbeitern" oder „an 8 Standorten". Manche Kacheln zeigen zwei Zahlen im Verhältnis, zum Beispiel erledigte zu geplanten Terminen.
+- **Der Trend** zeigt die Veränderung gegenüber dem Vergleichszeitraum, etwa „ggü. Vormonat", mit einem grünen oder roten Pfeil. Bei Prozentwerten wird die Veränderung in **Prozentpunkten** angegeben, erkennbar am Kürzel „pp": Der Unterschied zwischen 20 % und 25 % sind fünf Prozentpunkte, nicht fünf Prozent.
+- **Das ℹ️-Symbol** verrät dir, wie eine Zahl berechnet wird. Bei „Ø Pflegedauer je Produkt" steht dort zum Beispiel, dass die tatsächliche Termindauer ohne Pausen durch die Anzahl gepflegter Produkte geteilt wird.
+- **Rot eingefärbte Kacheln** sind Warnungen. Sie zeigen nichts Kaputtes an, sondern etwas, das deine Aufmerksamkeit braucht – etwa überfällige Termine.
+
+<Note>Das Zeichen **Ø** steht für „Durchschnitt". „Ø Termine je Mitarbeiter" heißt also: wie viele Termine im Schnitt auf eine Person entfallen.</Note>
+
+### Von der Zahl in die Liste springen
+
+Ein Teil der Kacheln hat oben rechts ein kleines **↗-Symbol**. Ein Klick darauf bringt dich in die passende Liste – und zwar **schon gefiltert**. Aus „Überfällige Termine" landest du direkt bei den überfälligen Terminen, aus „Erfasste Schädlinge" bei den Terminen mit Schädlingen, aus „Aufgaben heute" bei den Aufgaben der heutigen Termine.
+
+Das spart dir den Umweg, in der Zielansicht die Filter von Hand nachzubauen.
+
+Kacheln, die nur einen Bestand zählen – „Kunden", „Standorte", „Produkte" –, haben kein ↗-Symbol. Dort brauchst du keinen Filter, sondern die normale Übersicht: [Kunden & Standorte](/buero/kunden-standorte) oder [Pflanzen & Produkte](/buero/pflanzen-produkte).
+
+<Note>Zwei Kacheln haben bewusst **keinen** Absprung, obwohl er naheliegen würde: „Standorte ohne Intervall/Serie" und „Standorte ohne künftigen Termin". Für sie gibt es derzeit keine passende gefilterte Liste. Das ist kein Fehler – die Zahlen stimmen, nur der direkte Weg dorthin fehlt noch.</Note>
+
+## Tab „Heute" – was gerade läuft
+
+**Zeitraum: der laufende Tag.** Dieser Tab ist für den Blick am Morgen und zwischendurch gedacht.
+
+<Frame caption="Der Tab „Heute“ im Dashboard: alle Kennzahlen zum laufenden Tag. Zum Vergrößern anklicken (öffnet in neuem Tab).">
+  <a href="/images/buero/dashboard-heute.png" target="_blank" rel="noopener noreferrer">
+    <img src="/images/buero/dashboard-heute.png" alt="Dashboard-Tab „Heute“ mit Kennzahl-Kacheln zum laufenden Tag" noZoom />
   </a>
 </Frame>
 
-Eine **Kennzahl** (oft auch „KPI" genannt) ist einfach eine wichtige Zahl, die dir mit einem Blick zeigt, wo du stehst – zum Beispiel „142 Kunden" oder „durchschnittlich 38 Minuten pro Termin".
+### Die Kacheln
 
-## Kennzahl-Kacheln verstehen
+- **Heutige Termine** – wie viele der heutigen Termine schon abgeschlossen sind, im Verhältnis zu allen heutigen. Darunter steht „Termine erledigt".
+- **Im Einsatz** – wie viele Mitarbeitende gerade an einem Termin arbeiten, von allen aktiven Mitarbeitenden.
+- **Pflegeergebnisse** – wie viele der heute anstehenden Pflegen schon dokumentiert sind. Ein *Pflegeergebnis* ist die Doku, die unterwegs zu einer Pflanze festgehalten wird: Zustand, Wasserstand, Fotos.
+- **Aufgaben heute** – wie viele der heutigen Aufgaben abgehakt sind.
+- **Überfällige Termine** (rot) – Termine, deren Start mindestens 30 Minuten zurückliegt und die noch offen sind. Vortage sind mitgezählt, damit nichts liegen bleibt.
+- **Erfasste Probleme** – wie viele Probleme dein Team heute an Pflanzen gemeldet hat, und an wie vielen Standorten.
+- **Erfasste Schädlinge** – dasselbe für Schädlingsbefall.
+- **Abw. Termindauer** – wie stark die tatsächliche Dauer heute von der geplanten abweicht, in Minuten, und über wie viele Termine gerechnet wurde. Liegen für heute noch keine beendeten Termine vor, steht hier „Unbekannt".
 
-Ganz oben siehst du mehrere **Kacheln** – kleine Felder, in denen je eine wichtige Zahl steht. Sie geben dir den schnellen Überblick:
+### Status der heutigen Termine
 
-- **Kunden, Standorte und Produkte** – wie viele du insgesamt betreust. Ein *Produkt* ist dabei eine einzelne Pflanze an einem Standort.
-- **Mitarbeitende** – wie viele Personen in blueplant angelegt sind.
-- **Termine und Pflegeergebnisse** – wie viele Pflegebesuche und wie viele dokumentierte Ergebnisse es gibt. Ein *Pflegeergebnis* ist die Doku, die unterwegs zu einer Pflanze festgehalten wird (Wasserstand, Zustand, Fotos).
-- **Durchschnittliche Termindauer** – wie lange ein Pflegebesuch im Schnitt dauert.
+Diese Karte zeigt als **Balken**, wie sich die heutigen Termine auf die Status verteilen. Der Balken ist immer voll ausgefüllt, die Abschnitte zeigen also die Anteile; darunter stehen die genauen Zahlen zu **Offen**, **In Bearbeitung**, **Pausiert**, **Abgeschlossen** und **Andere**.
 
-<Tip>Fahre mit der Maus über eine Kachel oder einen Punkt im Diagramm, um den genauen Wert angezeigt zu bekommen.</Tip>
+Über die Auswahl-Chips darüber wechselst du zwischen **Gesamt** und einzelnen Mitarbeitenden – die Chips zeigen deren Initialen. So siehst du nicht nur, wie der Tag insgesamt läuft, sondern auch, bei wem es hakt.
 
-## Diagramme und Trends lesen
+### Standorte der letzten Pflegeerfassungen von heute
 
-Unter den Kacheln zeigen **Diagramme** (grafische Darstellungen von Zahlen), wie sich die Dinge verteilen und über die Zeit entwickeln. So erkennst du Muster, die in einer einzelnen Zahl nicht sichtbar wären.
+Eine Karte mit Markern zeigt, wo dein Team heute zuletzt dokumentiert hat – je Mitarbeiter ein eigener Marker mit den Initialen, oben rechts die Uhrzeit der jüngsten Erfassung. Praktisch für die Frage „wo steckt die Kollegin gerade?".
 
-- **Kunden- und Produkt-Verlauf** – eine Kurve über die Zeit. Du siehst, ob dein Betrieb wächst.
-- **Heutige Termine nach Status** – ein Kreisdiagramm (eine runde „Torte"). Es zeigt, wie viele der heutigen Termine schon erledigt, offen oder noch in Arbeit sind.
-- **Pflegeergebnisse nach Erfolg und Bestätigungsart** – zwei Kreisdiagramme. Sie zeigen, wie viele Pflegen erfolgreich waren und auf welche Weise sie bestätigt wurden.
-- **Verteilung der Pflege-Preise** – wie sich deine Produkte auf die Preisgruppen verteilen.
-- **Arbeitende Mitarbeitende** – eine Linie, die zeigt, wie viele Personen über die Zeit im Einsatz sind.
-- **Pflegeergebnisse je Mitarbeiter** – ein Balkendiagramm, das die geleistete Doku je Person vergleicht.
-- **Heutige Termine je Mitarbeiter** – wie sich die heutigen Besuche auf dein Team verteilen.
-- **QR-Code-Abdeckung** – wie viele deiner Produkte schon einen QR-Code haben (wichtig fürs schnelle Scannen vor Ort).
+Zum Tagesbeginn ist die Karte naturgemäß leer und weist dich darauf hin, dass noch keine Pflegeergebnisse erfasst wurden. Das ist normal und kein Fehler.
 
-<Note>Diese Diagramme dienen nur deinem Überblick. Sie verändern keine Daten – du kannst hier nichts versehentlich „kaputtmachen".</Note>
+## Tab „Bestand" – wie dein Betrieb wächst
+
+**Stichtag: heute.** Trends beziehen sich auf die zurückliegenden 30 Tage im Vergleich zu den 30 Tagen davor.
+
+<Frame caption="Der Tab „Bestand“: Wachstum deines Betriebs und Lücken in der Planung. Zum Vergrößern anklicken (öffnet in neuem Tab).">
+  <a href="/images/buero/dashboard-bestand.png" target="_blank" rel="noopener noreferrer">
+    <img src="/images/buero/dashboard-bestand.png" alt="Dashboard-Tab „Bestand“ mit Kennzahlen zu Kunden, Standorten und Produkten" noZoom />
+  </a>
+</Frame>
+
+### Die Kacheln
+
+- **Kunden**, **Standorte** und **Produkte** – wie viele du insgesamt betreust, je mit dem Trend „ggü. Vormonat". Ein *Produkt* ist dabei eine einzelne Pflanze an einem Standort.
+- **Termine nächste 30 Tage** – was in den kommenden vier Wochen ansteht, und an wie vielen Standorten.
+- **Standorte ohne Intervall/Serie** (rot) – Standorte, für die keine regelmäßige Pflege hinterlegt ist. Sie fallen leicht durchs Raster, weil für sie nichts automatisch geplant wird. Mehr dazu unter [Intervalle & Serien](/buero/intervalle-serien).
+- **Standorte ohne künftigen Termin** (rot) – Standorte, für die aktuell überhaupt kein Termin in der Zukunft liegt.
+
+<Tip>Die beiden roten Kacheln sind der schnellste Weg, Planungslücken zu finden. Ein Blick pro Woche reicht meist – die Zahl sollte über die Zeit kleiner werden, nicht größer.</Tip>
+
+### Die Diagramme
+
+- **Ø Produkte je Kunde** – eine Linie über zwölf Monate. Sie zeigt, ob deine Kunden im Schnitt mehr Pflanzen bei dir haben als früher. Steigt die Linie, wächst dein Geschäft in der Tiefe, nicht nur in der Breite.
+- **Produktverteilung** – ein Ring, der die fünf häufigsten Pflanzenarten zeigt, alles Übrige zusammengefasst als „Sonstige". So siehst du, wie stark du von einzelnen Arten abhängst.
+- **Produktkennzeichnung** – zeigt für alle Produkte, wie viele einen **QR-Code**, einen **NFC-Tag** oder gar keine Kennzeichnung tragen, je mit Anzahl und Anteil, darunter als Balken. Die **Kennzeichnungsrate** unten fasst zusammen, welcher Anteil überhaupt gekennzeichnet ist, dazu ein Hinweis, welche Art bei dir überwiegt. Gekennzeichnete Pflanzen lassen sich unterwegs scannen statt suchen – siehe [Scannen & Schnellpflege](/unterwegs/scannen-schnellpflege).
+
+## Tab „Team & Qualität" – wie dein Team arbeitet
+
+**Zeitraum: die letzten 30 Tage.** Dieser Tab ist für die regelmäßige Auswertung gedacht, nicht für den täglichen Blick.
+
+<Frame caption="Der Tab „Team & Qualität“: Produktivität und Pflegequalität der letzten 30 Tage. Zum Vergrößern anklicken (öffnet in neuem Tab).">
+  <a href="/images/buero/dashboard-team-qualitaet.png" target="_blank" rel="noopener noreferrer">
+    <img src="/images/buero/dashboard-team-qualitaet.png" alt="Dashboard-Tab „Team & Qualität“ mit Kennzahlen zu Produktivität und Pflegequalität" noZoom />
+  </a>
+</Frame>
+
+### Die Kacheln
+
+Bei den drei Ø-Kacheln steht die genaue Rechenformel hinter dem ℹ️-Symbol.
+
+- **Ø Pflegedauer je Produkt** – wie lange die Pflege einer einzelnen Pflanze im Schnitt dauert. Berechnet aus der tatsächlichen Termindauer ohne Pausen, geteilt durch die Anzahl gepflegter Produkte.
+- **Ø Ergebnisse je Mitarbeiter** – erfasste Pflegeergebnisse der letzten 30 Tage, geteilt durch die Anzahl aktiver Mitarbeitender.
+- **Ø Termine je Mitarbeiter** – dieselbe Rechnung für Termine.
+- **Anteil Ergebnisse mit Problemen** – bei wie vielen Pflegeergebnissen ein Problem festgehalten wurde, in Prozent, mit der Veränderung in Prozentpunkten. Über das ↗-Symbol kommst du zu den betroffenen Terminen.
+- **Anteil Ergebnisse mit Schädlingen** – dasselbe für Schädlingsbefall, ebenfalls mit Absprung.
+
+<Note>Ein steigender Problem- oder Schädlingsanteil heißt nicht automatisch, dass schlechter gepflegt wird. Er kann genauso bedeuten, dass dein Team **genauer dokumentiert**. Schau dir die Zahl im Verlauf an und sprich sie im Team an, bevor du sie bewertest.</Note>
+
+### Die Diagramme
+
+- **Erfasste Schädlinge je Monat** – gestapelte Säulen über sechs Monate, aufgeschlüsselt nach Schädlingsart. So erkennst du saisonale Muster – Trauermücken im Winter, Spinnmilben in der Heizperiode – und kannst vorbeugen statt reagieren.
+- **Ø Termindauer vs. Plan** – eine Linie über zwölf Monate: die tatsächliche Dauer durchgezogen, die geplante gestrichelt. Laufen die Linien dauerhaft auseinander, sind deine Planwerte zu knapp oder zu großzügig.
 
 ## So nutzt du das Dashboard im Alltag
 
 <Steps>
-  <Step title="Morgens den Tag prüfen">
-    Schau auf die heutigen Termine und ihren Status. So weißt du sofort, was für dein Team ansteht.
+  <Step title="Morgens: Tab „Heute“">
+    Ein Blick auf „Heutige Termine", „Im Einsatz" und „Überfällige Termine". Ist die rote Kachel nicht leer, klick auf das ↗-Symbol und arbeite die Liste ab.
   </Step>
-  <Step title="Entwicklung im Blick behalten">
-    Wirf regelmäßig einen Blick auf den Kunden- und Produkt-Verlauf, um zu sehen, ob dein Betrieb wächst.
+  <Step title="Wöchentlich: Tab „Bestand“">
+    Prüfe die beiden roten Lücken-Kacheln. Standorte ohne Intervall und ohne künftigen Termin sind die Kunden, bei denen du irgendwann unangenehm überrascht wirst.
   </Step>
-  <Step title="Bei Bedarf in die Tiefe gehen">
-    Wenn dich eine Zahl genauer interessiert, wechselst du in den passenden Bereich – etwa [Termine planen](/buero/termine-planen) oder [Pflanzen & Produkte](/buero/pflanzen-produkte).
+  <Step title="Monatlich: Tab „Team & Qualität“">
+    Schau dir die Durchschnittswerte und den Verlauf von Termindauer gegen Plan an. Das ist die Grundlage, um Planwerte anzupassen oder Kapazität nachzusteuern.
+  </Step>
+  <Step title="Bei Bedarf in die Tiefe">
+    Interessiert dich eine Zahl genauer, spring über das ↗-Symbol in die gefilterte Liste – oder wechsle direkt in [Termine planen](/buero/termine-planen) oder [Pflanzen & Produkte](/buero/pflanzen-produkte).
   </Step>
 </Steps>
 
 ## Gut zu wissen
 
-<Note>Im kostenlosen Tarif siehst du die **Basis-Kennzahlen**. Die erweiterten Diagramme und Trends sind Teil von **blueplant Professional**. Mehr dazu unter [Tarife](/wissenswertes/tarife).</Note>
+<Note>Der Tab **Heute** steht dir in jedem Tarif vollständig zur Verfügung. In **Bestand** und **Team & Qualität** siehst du die Basiszahlen ebenfalls immer; die Trend-Angaben und die Verlaufsdiagramme gehören zu **blueplant Professional** und sind mit einem Premium-Hinweis gekennzeichnet. Mehr dazu unter [Tarife](/wissenswertes/tarife).</Note>
 
-- Die Zahlen aktualisieren sich automatisch – du musst nichts manuell nachtragen. Wenn du frische Werte sehen willst, lade die Seite neu.
+- Die Zahlen aktualisieren sich automatisch – du musst nichts nachtragen. Wechselst du den Tab und kommst zurück, werden die Werte frisch geladen.
+- Die Diagramme dienen deinem Überblick. Du kannst hier nichts verändern und nichts versehentlich kaputtmachen.
 - Möchtest du Zahlen außerhalb von blueplant weiterverarbeiten, etwa in Excel, nutze den [Datenexport](/buero/export).
-- Unterwegs in der App hast du eine eigene, kompaktere Tagesübersicht – siehe [Dein Tag](/unterwegs/dein-tag).
-
+- Unterwegs in der App gibt es eine eigene, kompaktere Tagesübersicht – siehe [Dein Tag](/unterwegs/dein-tag).

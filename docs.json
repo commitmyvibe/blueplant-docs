@@ -30,10 +30,9 @@
           "href": "/erste-schritte/willkommen"
         },
         {
-          "anchor": "Help",
+          "anchor": "Support",
           "icon": "life-buoy",
-          "href": "https://www.mintlify.com/docs/contact-support",
-          "hidden": true
+          "href": "https://support.blueplant.cloud/"
         }
       ]
     },
@@ -99,6 +98,7 @@
             "icon": "settings",
             "pages": [
               "buero/einstellungen",
+              "buero/abrechnung",
               "buero/benachrichtigungen"
             ]
           },
@@ -148,6 +148,7 @@
               "wissenswertes/glossar",
               "wissenswertes/tarife",
               "wissenswertes/faq",
+              "wissenswertes/hilfe-support",
               "wissenswertes/tipps"
             ]
           }
@@ -205,7 +206,23 @@
       "href": "https://www.blueplant.app/"
     }
   },
-  "footer": {},
+  "footer": {
+    "links": [
+      {
+        "header": "Hilfe",
+        "items": [
+          {
+            "label": "Hilfe & Support",
+            "href": "/wissenswertes/hilfe-support"
+          },
+          {
+            "label": "Support-Portal",
+            "href": "https://support.blueplant.cloud/"
+          }
+        ]
+      }
+    ]
+  },
   "redirects": [
     {
       "source": "/",

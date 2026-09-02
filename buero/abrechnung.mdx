@@ -1,0 +1,103 @@
+---
+title: "Abrechnung & Zahlungsdaten"
+description: "Wo du deinen Tarif, die nächste Abrechnung und deine Zahlungsdaten findest – und wie du sie im Kundenportal von Stripe pflegst."
+---
+
+Im Bereich **Abrechnung** siehst du auf einen Blick, welcher Tarif für deinen Betrieb aktiv ist, was die nächste Abrechnung kostet und ob deine Zahlungsdaten hinterlegt sind. Von hier kommst du außerdem ins **Kundenportal**, in dem du Zahlungsmittel und Rechnungsdaten selbst pflegst.
+
+<Note>
+  Den Bereich Abrechnung sieht und ändert nur die Rolle **Verwaltung** – siehe [Wer darf was](/erste-schritte/rollen).
+</Note>
+
+## So öffnest du die Abrechnung
+
+<Steps>
+  <Step title="Administration aufrufen">
+    Klicke in der linken Menüleiste auf **Administration**.
+  </Step>
+  <Step title="Abrechnung wählen">
+    Wähle darunter **Abrechnung**. Du landest auf der Übersicht mit deinem Tarif und deinen Abrechnungsdaten.
+  </Step>
+</Steps>
+
+## Was du auf der Seite siehst
+
+- **Ihr aktueller Plan** – dein aktiver Tarif, also der kostenlose Tarif oder **Professional**. Im kostenlosen Tarif steht daneben ein Verweis auf die Vorteile von Professional.
+- **Aktive Nutzer** – die Anzahl der Personen mit eigenem Zugang. Danach richtet sich der Preis, denn blueplant Professional wird pro Nutzer abgerechnet. Gilt für dich ein Rabattmodell, steht die Erklärung dazu direkt darunter.
+- **Preis der nächsten Abrechnung** – der Betrag, der als Nächstes fällig wird.
+- **Datum der nächsten Abrechnung** – der Tag, an dem abgerechnet wird.
+- **Kundenportal** – der Weg zu Rechnungen und Zahlungsdaten. Ein farbiger Hinweis zeigt den Stand: **Zahlungsdaten sind hinterlegt** (grün) oder **Es wurden noch keine Zahlungsdaten hinterlegt** (rot).
+
+<Note>
+  Weil aktive Nutzer **tagesgenau** abgerechnet werden, kann der hier angezeigte Preis leicht vom Betrag abweichen, den du später im Kundenportal siehst. Der Wert auf dieser Seite ist immer die **nächste anstehende** Abrechnung.
+</Note>
+
+{/* TODO: Screenshot Abrechnungsseite (Administration → Abrechnung, Block „Kundenportal" mit Status-Hinweis) aus dem Test-Mandanten einfügen */}
+
+## Zahlungsdaten im Kundenportal pflegen
+
+Deine Zahlungsdaten liegen nicht in blueplant selbst, sondern beim Abrechnungsdienstleister **Stripe**. Das ist ein bekannter Zahlungsdienstleister, der die Abrechnung für blueplant übernimmt – so bleiben deine Kartendaten dort, wo sie sicher verwahrt sind. Den Zugang dazu nennt blueplant das **Kundenportal**.
+
+<Steps>
+  <Step title="Abrechnung öffnen">
+    Gehe wie oben beschrieben auf **Administration → Abrechnung**.
+  </Step>
+  <Step title="Zum Kundenportal wechseln">
+    Klicke im Block **Kundenportal** rechts auf **Zum Kundenportal**. blueplant leitet dich anschließend zu Stripe weiter – das passiert **im selben Browser-Tab**, du musst also nichts extra öffnen.
+  </Step>
+  <Step title="Zahlungsmittel hinterlegen oder ändern">
+    Im **kostenlosen Tarif** öffnet sich direkt die Maske zum Hinterlegen einer Zahlungsmethode. In **Professional** landest du auf der Portal-Übersicht und wählst dort **Zahlungsmethode** aus. Trage die Daten ein und speichere sie.
+  </Step>
+  <Step title="Zurück zu blueplant">
+    Über den Zurück-Link im Portal kommst du auf dieselbe blueplant-Seite zurück, von der du gestartet bist. Der Hinweis im Block Kundenportal wechselt dann auf **Zahlungsdaten sind hinterlegt**.
+  </Step>
+</Steps>
+
+<Tip>
+  Läuft deine Karte demnächst ab, musst du nicht warten, bis eine Abrechnung fehlschlägt: Du kannst die Zahlungsmethode jederzeit im Kundenportal austauschen.
+</Tip>
+
+## Was du im Kundenportal erledigen kannst
+
+<CardGroup cols={2}>
+  <Card title="Zahlungsmethode pflegen" icon="credit-card">
+    Ein Zahlungsmittel neu hinterlegen, austauschen oder die Daten einer bestehenden Karte aktualisieren.
+  </Card>
+  <Card title="Rechnungen einsehen" icon="receipt">
+    Deine bisherigen Rechnungen ansehen und als PDF herunterladen – praktisch für die Buchhaltung.
+  </Card>
+  <Card title="Rechnungsanschrift ändern" icon="building">
+    Die Anschrift anpassen, die auf der Rechnung steht, und deine Umsatzsteuer-Identifikationsnummer hinterlegen.
+  </Card>
+  <Card title="Abrechnungs-E-Mail ändern" icon="mail">
+    Festlegen, an welche E-Mail-Adresse die Rechnungen gehen sollen.
+  </Card>
+</CardGroup>
+
+<Note>
+  **Kündigen kannst du im Kundenportal nicht.** Eine Kündigung geht schriftlich per E-Mail – wohin, steht unter [Hilfe & Support](/wissenswertes/hilfe-support).
+</Note>
+
+## Wenn das Upgrade gesperrt ist
+
+<Warning>
+  Solange keine Zahlungsdaten hinterlegt sind, ist der Knopf **Jetzt zu blueplant Professional upgraden** nicht anklickbar. blueplant zeigt dann den Hinweis: „Hinterlege zunächst deine Zahlungsdaten im Kundenportal, um das Upgrade zu starten." Also erst Zahlungsdaten hinterlegen, danach das Upgrade auslösen.
+</Warning>
+
+Wie das Upgrade selbst abläuft und was Professional zusätzlich freischaltet, steht unter [Tarife](/wissenswertes/tarife).
+
+## Wenn nach der Testphase Zahlungsdaten fehlen
+
+<Warning>
+  Läuft eine Testphase in Professional ab und es sind **keine** Zahlungsdaten hinterlegt, führt blueplant dich als **Verwaltung** beim Anmelden direkt auf die Abrechnungsseite – erst nach dem Hinterlegen der Zahlungsdaten kommst du wieder in die übrigen Bereiche. Alle anderen Rollen sehen in dieser Zeit den Hinweis, dass sie nicht berechtigt sind. Kümmert sich also die Verwaltung zügig um die Zahlungsdaten, können alle weiterarbeiten.
+</Warning>
+
+## Wenn die Seite nur eine Warnung zeigt
+
+Zeigt die Abrechnungsseite statt der Übersicht nur einen Warnhinweis, konnte dein Konto nicht mit dem Abrechnungsdienstleister verknüpft werden. Das kannst du nicht selbst beheben – gib dafür ein Ticket auf oder schreibe eine E-Mail an `support@blueplant.cloud`. Wie das geht, steht unter [Hilfe & Support](/wissenswertes/hilfe-support).
+
+## Gut zu wissen
+
+- blueplant **stellt keine Rechnungen an deine Kunden**. Hier geht es nur um deine eigene Abrechnung für die Nutzung von blueplant. Belege über deine erbrachte Pflege sind die [Leistungsnachweise](/buero/leistungsnachweise).
+- Welche Grenzen im kostenlosen Tarif gelten und was Professional kostet, steht unter [Tarife](/wissenswertes/tarife).
+- Wer welche Bereiche sehen darf, hängt von der [Rolle](/erste-schritte/rollen) ab.
